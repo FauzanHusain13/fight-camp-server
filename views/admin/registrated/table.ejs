@@ -1,0 +1,93 @@
+<table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+    <tr>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            No.
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Thumbnail
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Nama training
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Paket
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Harga
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Email
+        </th>
+        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Status
+        </th>
+    </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        <% for(let i = 0; i < registrated.length; i++) { %>
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= i + 1 %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <img src="http://localhost:8000/uploads/training/<%= registrated[i].historyTraining.thumbnail %>" class="w-[200px]" />
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= registrated[i].historyTraining.trainingName %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= registrated[i].historyTraining.package %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= registrated[i].historyTraining.price %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= registrated[i].user.email %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <% if(registrated[i].status === "pending") { %>
+                        <p class="text-orange-500 font-semibold">
+                            <%= registrated[i].status %>
+                        </p>
+                    <% } else if(registrated[i].status === "failed") { %>
+                        <p class="text-red-600 font-semibold">
+                            <%= registrated[i].status %>
+                        </p>
+                    <% } else { %>
+                        <p class="text-green-500 font-semibold">
+                            <%= registrated[i].status %>
+                        </p>
+                    <% } %>
+                </td>
+                <td class="">
+                    <% if(registrated[i].status === "pending") { %>
+                        <form action="/registrated/status/<%= registrated[i]._id %>?status=failed&_method=PUT" style="display: inline-block;" method="POST">
+                            <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-red-600">
+                                Tolak
+                            </button>
+                        </form>
+            
+                        <form action="/registrated/status/<%= registrated[i]._id %>?status=success&_method=PUT" style="display: inline-block;" method="POST">
+                            <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-green-700">
+                                Terima
+                            </button>
+                        </form>
+                    <% } else if(registrated[i].status === "failed") { %>
+                        <form action="/registrated/status/<%= registrated[i]._id %>?status=failed&_method=PUT" style="display: inline-block;" method="POST">
+                            <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-red-600">
+                              Tolak
+                            </button>
+                        </form>
+              
+                        <form action="/registrated/status/<%= registrated[i]._id %>?status=success&_method=PUT" style="display: inline-block;" method="POST">
+                            <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-green-700">
+                              Terima
+                            </button>
+                        </form>
+                    <% } %>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

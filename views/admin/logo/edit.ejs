@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body class="font-[Poppins]">
+    <%- include ../../partials/sidebar.ejs %>
+    <div class="mt-20 px-52 mx-auto bg-white shadow p-6 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-4 text-red-600">Form tambah logo</h2>
+        <form action="/logo/edit/<%= logo._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="mt-12">
+          <div class="mb-6">
+            <label class="block text-gray-700 font-semibold mb-2" for="name">
+              Nama perusahaan
+            </label>
+            <input id="name" name="name" value="<%= logo.name %>" type="text" placeholder="Masukkan nama perusahaan" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600">
+          </div>
+          <div class="mb-10">
+            <img src="http://localhost:8000/uploads/logo/<%= logo.logo %>" id="perview" class="w-[200px]">
+            <input type="file" name="logo" value="<%= logo.logo %>" id="logo" placeholder="Masukkan logo"  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600" />
+            <br />
+          </div>
+          <div class="flex items-center justify-between">
+            <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red-600" type="submit">
+              Simpan
+            </button>
+          </div>
+        </form>
+    </div>
+    <%- include ../../partials/functionSidebar.ejs %>
+</body>
+</html>
