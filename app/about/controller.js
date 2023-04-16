@@ -12,29 +12,6 @@ module.exports = {
             throw err
         }
     },
-    viewCreate: async(req, res) => {
-        try {
-            res.render("admin/about/add", {
-                title: "Fight Camp || Tambah about",
-            })
-        } catch (err) {
-            res.redirect("/about")
-            throw err
-        }
-    },
-    actionCreate: async(req, res) => {
-        try {
-            const { paragraph } = req.body;
-
-            const about = await About({ paragraph });
-            await about.save()
-
-            res.redirect("/about")
-        } catch (err) {
-            res.redirect("/about")
-            throw err
-        }
-    },
     viewEdit: async(req, res) => {
         try {
             const { id } = req.params;
