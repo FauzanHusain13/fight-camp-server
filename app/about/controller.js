@@ -48,5 +48,20 @@ module.exports = {
             res.redirect("/about")
             throw err
         }
+    },
+    actionEdit: async(req, res) => {
+        try {
+            const { id } = req.params;
+            const { paragraph } = req.body;
+    
+            await About.findOneAndUpdate({
+                _id: id
+            }, { paragraph })
+
+            res.redirect("/about")
+        } catch (err) {
+            res.redirect("/about")
+            throw err
+        }
     }
 }
