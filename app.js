@@ -18,6 +18,7 @@ const registratedRouter = require('./app/registrated/router');
 
 const logoRouter = require('./app/logo/router');
 const aboutRouter = require('./app/about/router');
+const galleryRouter = require('./app/gallery/router');
 
 // konfigurasi api
 const authRouter = require("./app/auth/router")
@@ -54,6 +55,7 @@ app.use('/registrated', registratedRouter);
 
 app.use('/logo', logoRouter);
 app.use('/about', aboutRouter);
+app.use('/gallery', galleryRouter);
 
 // api
 app.use(`${URL}/users`, userRouter)
