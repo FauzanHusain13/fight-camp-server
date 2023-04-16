@@ -18,19 +18,15 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                     <%= i + 1 %>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <%= about[i].paragraph %>
+                <td class="px-6 py-4 whitespace-nowrap overflow-auto max-w-lg">
+                    <p class=""><%= about[i].paragraph %></p>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <form action="/about/delete/<%= about[i]._id %>?_method=DELETE" method="POST" class="flex gap-1">
+                    <form class="flex gap-1">
                         <a href="/about/edit/<%= about[i]._id %>" class="text-sm flex gap-1 bg-orange-500 text-white p-2">
                           <i class="bi bi-pencil"></i>
                           <p>edit</p>
                         </a>
-                        <button class="text-sm bg-red-500 text-white p-2 flex gap-1">
-                          <i class="bi bi-archive-fill"></i>
-                          <p>delete</p>
-                        </button>
                     </form>
                 </td>
             </tr>
