@@ -1,4 +1,21 @@
 const Discount = require("./model")
+const User = require("../user/model")
+
+const config = require("../../config")
+const nodemailer = require("nodemailer")
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: config.email,
+        pass: config.password
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 
 module.exports = {
     index: async(req, res) => {
@@ -25,8 +42,38 @@ module.exports = {
         try {
             const payload = req.body
 
+            const users = await User.find();
+            const emails = [];
+
+            for (let i = 0; i < users.length; i++) {
+                emails.push(users[i].email);
+            }
+
+            const mailOptions = {
+                from: config.email,
+                to: emails,
+                subject: "New Promo",
+                html: (
+                    `<div style="background-color: #F0F0F0; padding: 20px; text-align: center; font-family: 'Poppins';">
+                        <div style="background-color: white; margin: auto; width: 500px; padding: 25px 50px 75px;">
+                            <p style="font-size: 22px; font-weight: 400;">Promo Spesial ${payload.discountName}</p>
+                        </div>
+                    </div>`
+                )
+            };
+
             const discount = await Discount(payload)
             await discount.save()
+
+            // send mail
+            transporter.sendMail(mailOptions, function(error, info){
+                if(error) {
+                    console.log(error)
+                } else {
+                    console.log("sukses!")
+                    res.redirect("/discount")
+                }
+            });
 
             res.redirect("/discount")
         } catch (err) {

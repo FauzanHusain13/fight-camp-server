@@ -8,4 +8,6 @@ module.exports = {
     urlDb: process.env.MONGO_URL,
     rootPath: path.resolve(__dirname, ".."),
     jwtKey: process.env.SECRET,
+    email: process.env.AUTH_EMAIL,
+    password: process.env.AUTH_PASSWORD,
 }
