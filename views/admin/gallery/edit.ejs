@@ -14,19 +14,19 @@
     <%- include ../../partials/sidebar.ejs %>
     <div class="mt-20 px-52 mx-auto bg-white shadow p-6 rounded-lg">
         <h2 class="text-2xl font-semibold mb-4 text-red-600">Form tambah gallery</h2>
-        <form action="/gallery/add" method="POST" enctype="multipart/form-data" class="mt-12 flex justify-start gap-4">
+        <form action="/gallery/edit/<%= gallery._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="mt-12 flex justify-start gap-4">
             <div class="">
-              <img src="" id="perview" class="w-[300px] h-[300px]">
+              <img src="http://localhost:8000/uploads/gallery/<%= gallery.image %>" id="perview" class="w-[300px] h-[300px]">
             </div>
             <div>
               <div class="mb-6">
                 <label class="block text-gray-700 font-semibold mb-2" for="title">
                   Masukkan judul
                 </label>
-                <input id="title" name="title" type="text" placeholder="Masukkan judul" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600">
+                <input id="title" name="title" type="text" value="<%= gallery.title %>" placeholder="Masukkan judul" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600">
               </div>
               <div class="mb-10">
-                <input type="file" name="image" id="image" class="form-control" placeholder="Masukkan image"  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600" />
+                <input type="file" name="image" id="image" value="<%= gallery.image %>" class="form-control" placeholder="Masukkan image"  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-red-600" />
                 <br />
               </div>
   
@@ -36,7 +36,7 @@
                 </button>
               </div>
             </div>
-          </form>
+        </form>
     </div>
     <%- include ../../partials/functionSidebar.ejs %>
     <script>
