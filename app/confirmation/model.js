@@ -11,16 +11,13 @@ let confirmationSchema = mongoose.Schema({
     historyBank: {
         name: { type: String, require:[true, "Nama pemilik harus diisi"] },
         bankName: { type: String, require:[true, "Nama bank harus diisi"] },
+        noWhatsapp: { type: Number, require:[true, "Nomor whatsapp harus diisi"] },
         noRekening: { type: String, require:[true, "No rekening harus diisi"] }
     },
     status: {
         type: String,
         enum: ["pending", "success", "failed"],
         default: "pending"
-    },
-    admin: {
-        name: { type: String, default: "Lisnawati" },
-        noTelp: { type: Number, default: 0811265318 },
     },
     historyDiscount: {
         discountName: { type: String },

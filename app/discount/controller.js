@@ -54,9 +54,11 @@ module.exports = {
                 to: emails,
                 subject: "New Promo",
                 html: (
-                    `<div style="background-color: #F0F0F0; padding: 20px; text-align: center; font-family: 'Poppins';">
-                        <div style="background-color: white; margin: auto; width: 500px; padding: 25px 50px 75px;">
-                            <p style="font-size: 22px; font-weight: 400;">Promo Spesial ${payload.discountName}</p>
+                    `<div style="background-color: #F0F0F0; padding: 20px; font-weight: 400; text-align: center; font-family: 'Poppins';">
+                        <div style="background-color: white; margin: auto; width: 500px; padding: 25px 50px 50px;">
+                            <h1 style="color: #e53e3e;">Chokbulls</h1>
+                            <p style="font-size: 18px; font-weight: 400; margin-top: 20px;">Promo Spesial ${payload.discountName}</p>
+                            <p style="font-size: 18px; font-weight: 400; margin-top: -5px">Potongan sebesar ${payload.discount}</p>
                         </div>
                     </div>`
                 )

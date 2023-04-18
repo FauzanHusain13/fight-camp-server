@@ -9,6 +9,10 @@ let bankSchema = mongoose.Schema({
         type: String,
         require: [true, "Nama bank harus diisi"]
     },
+    noWhatsapp: {
+        type: Number,
+        require: [true, "Nomor whatsapp harus diisi"]
+    },
     noRekening: {
         type: String,
         require: [true, "Nomor rekening bank harus diisi"]

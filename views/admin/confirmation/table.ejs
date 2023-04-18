@@ -5,9 +5,6 @@
             No.
         </th>
         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Thumbnail
-        </th>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Nama training
         </th>
         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -31,9 +28,6 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <%= i + 1 %>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <img src="http://localhost:8000/uploads/training/<%= confirmation[i].historyTraining.thumbnail %>" class="w-[200px]" />
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <%= confirmation[i].historyTraining.trainingName %>
@@ -62,27 +56,27 @@
                             </p>
                         <% } %>
                     </td>
-                    <td class="flex flex-col gap-2 p-4">
+                    <td class="p-5">
                         <% if(confirmation[i].status === "pending") { %>
-                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=failed&_method=PUT" method="POST">
+                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=failed&_method=PUT" style="display: inline-block" method="POST">
                                 <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-red-600">
                                     Tolak
                                 </button>
                             </form>
                 
-                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=success&_method=PUT" method="POST">
+                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=success&_method=PUT" style="display: inline-block" method="POST">
                                 <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-green-700">
                                     Terima
                                 </button>
                             </form>
                         <% } else if(confirmation[i].status === "failed") { %>
-                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=failed&_method=PUT" method="POST">
+                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=failed&_method=PUT" style="display: inline-block" method="POST">
                                 <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-red-600">
                                   Tolak
                                 </button>
                             </form>
                   
-                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=success&_method=PUT" method="POST">
+                            <form action="/confirmation/status/<%= confirmation[i]._id %>?status=success&_method=PUT" style="display: inline-block" method="POST">
                                 <button class="p-2 px-4 font-semibold text-white rounded-sm text-sm bg-green-700">
                                   Terima
                                 </button>

@@ -86,6 +86,7 @@ module.exports = {
               historyBank: {
                 name: res_bank._doc.name,
                 bankName: res_bank._doc.bankName,
+                noWhatsapp: res_bank._doc.noWhatsapp,
                 noRekening: res_bank._doc.noRekening,
               },
               historyDiscount,
