@@ -7,6 +7,7 @@ const Confirmation = require("../confirmation/model")
 const About = require("../about/model")
 const Logo = require("../logo/model")
 const Gallery = require("../gallery/model")
+const Sosmed = require("../sosmed/model")
 
 module.exports = {
     training: async(req, res) => {
@@ -154,6 +155,15 @@ module.exports = {
             const gallery = await Gallery.find();
 
             res.status(200).json({ data: gallery })
+        } catch (err) {
+            res.status(500).json({ message: err.message || "Internal server error" })
+        }
+    },
+    sosmed: async(req, res) => {
+        try {
+            const sosmed = await Sosmed.find()
+
+            res.status(200).json({ data: sosmed })
         } catch (err) {
             res.status(500).json({ message: err.message || "Internal server error" })
         }
