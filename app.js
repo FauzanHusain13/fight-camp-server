@@ -5,6 +5,7 @@ const methodOverride = require("method-override")
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
+const helmet = require("helmet")
 
 // konfigurasi admin
 const adminRouter = require('./app/admin/router');
@@ -25,7 +26,7 @@ const sosmedRouter = require('./app/sosmed/router');
 const authRouter = require("./app/auth/router")
 const userRouter = require("./app/user/router")
 
-var app = express();
+const app = express();
 const URL = "/api/v1";
 
 // view engine setup
@@ -78,5 +79,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+    },
+  },
+}));
 
 module.exports = app;
