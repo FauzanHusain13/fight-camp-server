@@ -1,7 +1,10 @@
 {
     "version": 2,
     "builds": [
-      { "src": "app.js", "use": "@now/node-server" }
+      {
+        "src": "*.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
         { "src": "/dashboard", "dest": "/app/dashboard/router.js" },
