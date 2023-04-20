@@ -7,6 +7,7 @@
       }
     ],
     "routes": [
+        { "src": "/", "dest": "/app/admin/router.js" },
         { "src": "/dashboard", "dest": "/app/dashboard/router.js" },
         { "src": "/membership", "dest": "/app/membership/router.js" },
         { "src": "/bank", "dest": "/app/bank/router.js" },
