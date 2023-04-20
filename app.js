@@ -5,7 +5,6 @@ const methodOverride = require("method-override")
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
-const helmet = require("helmet")
 
 // konfigurasi admin
 const adminRouter = require('./app/admin/router');
@@ -79,15 +78,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'"],
-    },
-  },
-}));
 
 module.exports = app;
