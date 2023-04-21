@@ -20,7 +20,6 @@
         { "src": "/gallery", "dest": "/app/gallery/router.js" },
         { "src": "/sosmed", "dest": "/app/sosmed/router.js" },
         { "src": "/api/v1/users", "dest": "/app/user/router.js" },
-        { "src": "/api/v1/auth", "dest": "/app/auth/router.js" },
-        { "src": "/(.*)", "dest": "/app.js" }
+        { "src": "/api/v1/auth", "dest": "/app/auth/router.js" }
     ]
 }
