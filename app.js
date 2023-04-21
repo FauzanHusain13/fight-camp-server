@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
 
-// konfigurasi admin
+// konfigurasi router
 const adminRouter = require('./app/admin/router');
 const dashboardRouter = require('./app/dashboard/router');
 const membershipRouter = require('./app/membership/router');
@@ -45,6 +45,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// router
 app.use("/", adminRouter)
 app.use('/dashboard', dashboardRouter);
 app.use('/membership', membershipRouter);
