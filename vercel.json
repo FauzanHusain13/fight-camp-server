@@ -21,5 +21,13 @@
         { "src": "/sosmed", "dest": "/app/sosmed/router.js" },
         { "src": "/api/v1/users", "dest": "/app/user/router.js" },
         { "src": "/api/v1/auth", "dest": "/app/auth/router.js" }
-    ]
+    ],
+    "env": {
+      "MODE": "dev",
+      "SERVICE_NAME": "fight-camp-server",
+      "MONGO_URL": "mongodb+srv://achmadfauzan1340:NU7hFXumNR6uMYxg@cluster0.ngjhm.mongodb.net/fight-camp?retryWrites=true&w=majority",
+      "SECRET": "qwertyuiop",
+      "AUTH_EMAIL": "achmadfauzan1340@gmail.com",
+      "AUTH_PASSWORD": "emuqwnooutasorcg"
+  }
 }
