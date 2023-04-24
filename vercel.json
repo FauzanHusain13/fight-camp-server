@@ -9,7 +9,6 @@
                 "AUTH_EMAIL": "achmadfauzan1340@gmail.com",
                 "AUTH_PASSWORD": "emuqwnooutasorcg"
             },
-            "src": "app.js",
             "use": "@vercel/node"
         }
     ,
