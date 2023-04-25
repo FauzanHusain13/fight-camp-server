@@ -1,14 +1,7 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "*.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/app.js" }
-    ],
+    "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+    "routes": [{ "src": "/(.*)", "dest": "/app.js" }],
     "env": {
       "MODE": "dev",
       "SERVICE_NAME": "fight-camp-server",
@@ -16,5 +9,5 @@
       "SECRET": "qwertyuiop",
       "AUTH_EMAIL": "achmadfauzan1340@gmail.com",
       "AUTH_PASSWORD": "emuqwnooutasorcg"
-  }
+    }
 }
