@@ -4,10 +4,7 @@ const Bank = require("../bank/model")
 const Discount = require("../discount/model")
 const Confirmation = require("../confirmation/model")
 
-const About = require("../about/model")
-const Logo = require("../logo/model")
 const Gallery = require("../gallery/model")
-const Sosmed = require("../sosmed/model")
 
 module.exports = {
     training: async(req, res) => {
@@ -131,25 +128,6 @@ module.exports = {
             res.status(500).json({ message: err.message || "Internal server error" })
         }
     },
-
-    about: async(req, res) => {
-        try {
-            const about = await About.find()
-                
-            res.status(200).json({ data: about })
-        } catch (err) {
-            res.status(500).json({ message: err.message || "Internal server error" })
-        }
-    },
-    logo: async(req, res) => {
-        try {
-            const logo = await Logo.find();
-
-            res.status(200).json({ data: logo })
-        } catch (err) {
-            res.status(500).json({ message: err.message || "Internal server error" })
-        }
-    },
     gallery: async(req, res) => {
         try {
             const gallery = await Gallery.find();
@@ -159,13 +137,4 @@ module.exports = {
             res.status(500).json({ message: err.message || "Internal server error" })
         }
     },
-    sosmed: async(req, res) => {
-        try {
-            const sosmed = await Sosmed.find()
-
-            res.status(200).json({ data: sosmed })
-        } catch (err) {
-            res.status(500).json({ message: err.message || "Internal server error" })
-        }
-    }
 }

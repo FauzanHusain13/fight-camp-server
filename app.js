@@ -16,10 +16,7 @@ const discountRouter = require('./app/discount/router');
 const confirmationRouter = require('./app/confirmation/router');
 const registratedRouter = require('./app/registrated/router');
 
-const logoRouter = require('./app/logo/router');
-const aboutRouter = require('./app/about/router');
 const galleryRouter = require('./app/gallery/router');
-const sosmedRouter = require('./app/sosmed/router');
 
 // konfigurasi api
 const authRouter = require("./app/auth/router")
@@ -55,10 +52,7 @@ app.use('/discount', discountRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/registrated', registratedRouter);
 
-app.use('/logo', logoRouter);
-app.use('/about', aboutRouter);
 app.use('/gallery', galleryRouter);
-app.use('/sosmed', sosmedRouter);
 
 // api
 app.use(`${URL}/users`, userRouter)
