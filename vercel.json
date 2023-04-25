@@ -7,20 +7,7 @@
       }
     ],
     "routes": [
-        { "src": "/", "dest": "./app/admin/router.js" },
-        { "src": "/dashboard", "dest": "./app/dashboard/router.js" },
-        { "src": "/membership", "dest": "./app/membership/router.js" },
-        { "src": "/bank", "dest": "./app/bank/router.js" },
-        { "src": "/training", "dest": "./app/training/router.js" },
-        { "src": "/discount", "dest": "./app/discount/router.js" },
-        { "src": "/confirmation", "dest": "./app/confirmation/router.js" },
-        { "src": "/registrated", "dest": "./app/registrated/router.js" },
-        { "src": "/logo", "dest": "./app/logo/router.js" },
-        { "src": "/about", "dest": "./app/about/router.js" },
-        { "src": "/gallery", "dest": "./app/gallery/router.js" },
-        { "src": "/sosmed", "dest": "./app/sosmed/router.js" },
-        { "src": "/api/v1/users", "dest": "./app/user/router.js" },
-        { "src": "/api/v1/auth", "dest": "./app/auth/router.js" }
+      { "src": "/(.*)", "dest": "/app.js" }
     ],
     "env": {
       "MODE": "dev",
