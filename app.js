@@ -25,7 +25,6 @@ const userRouter = require("./app/user/router")
 
 const app = express();
 const URL = "/api/v1";
-app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
