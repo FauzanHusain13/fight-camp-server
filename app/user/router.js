@@ -8,6 +8,6 @@ router.get('/detailTraining/:id', detailTraining)
 router.post('/checkout', isLoginPlayer, checkout)
 router.get('/confirmation', isLoginPlayer, confirmation)
 
-router.get('/gallery', isLoginPlayer, gallery)
+router.get('/gallery', gallery)
 
 module.exports = router;
