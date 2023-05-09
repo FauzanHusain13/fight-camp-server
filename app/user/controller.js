@@ -128,6 +128,18 @@ module.exports = {
             res.status(500).json({ message: err.message || "Internal server error" })
         }
     },
+    detailConfirmation: async(req, res) => {
+        try {
+            const { id } = req.params;
+
+            const history = await Confirmation.find({ _id: id })
+            if(!history) return res.status(404).json({ message: "History tidak ditemukan!" })
+            
+            res.status(200).json({ data: history })
+        } catch (err) {
+            res.status(500).json({ message: err.message || "Internal server error" })
+        }
+    },
     gallery: async(req, res) => {
         try {
             const gallery = await Gallery.find();
